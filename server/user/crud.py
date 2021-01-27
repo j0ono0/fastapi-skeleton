@@ -1,5 +1,5 @@
 from sqlalchemy.orm import Session
-from server import authentication as auth
+from . import authentication as auth
 from . import models, schemas
 
 

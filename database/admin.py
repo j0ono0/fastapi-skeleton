@@ -1,5 +1,5 @@
 # Admin functions
-# Run via commandline: python -m sql_app.admin <function name> <param1> <param2> <...etc>
+# Run via commandline: python -m database.admin <function name> <param1> <param2> <...etc>
 
 import sys
 import inspect

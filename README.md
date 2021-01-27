@@ -47,4 +47,4 @@ From the root directory run pytest with the command `pytest`. Nice intro on how 
 By default users created via the API are not superusers, they can only be upgraded by another superuser. 
 
 An existing user's authority can be upgraded via a python 'helper function'. To run the function from a commandline enable the virtual env and type the following from the project root directory:
-`python -m sql_app.admin upgrade_to_superuser <user.id>`
+`python -m database.admin upgrade_to_superuser <user.id>`

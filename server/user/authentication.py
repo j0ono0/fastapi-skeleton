@@ -6,17 +6,16 @@ from pydantic import BaseModel
 from typing import Optional
 from fastapi import Depends, HTTPException, status, APIRouter
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
-from sql_app import crud, schemas
-from sql_app.database import get_db
-from sql_app.models import User
+from . import crud, schemas
+from database.engine import get_db
 
+from .models import User
 
 # to get a string like this run:
 # openssl rand -hex 32
 SECRET_KEY = "ef1060726ecc2370a176201ab840ccda749208bb73d01cfc25fb3e362f9b41b5"
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 30
-
 
 class Token(BaseModel):
     access_token: str
@@ -25,7 +24,7 @@ class Token(BaseModel):
 class TokenData(BaseModel):
     username: Optional[str] = None
 
-oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/auth/token")
+oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/user/token")
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
 def verify_password(plain_password, hashed_password):
@@ -100,7 +99,7 @@ async def can_edit_user(
 
 ###############################
 # Routes
-
+""" 
 router = APIRouter(
     prefix = "/auth",
 )
@@ -116,4 +115,5 @@ async def login_for_access_token(db: Session = Depends(get_db), form_data: OAuth
         )
     # email used as unique user identification
     access_token = create_access_token(data={"sub": user.email})
-    return {"access_token": access_token, "token_type": "bearer"}
+    return {"access_token": access_token, "token_type": "bearer"} 
+"""
