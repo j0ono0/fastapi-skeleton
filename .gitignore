@@ -1,6 +1,6 @@
-/*.egg-info
-/venv
-*/__pycache__
+*.egg-info/
+venv/
+**/__pycache__/
 
 # local database
 *.sqlite

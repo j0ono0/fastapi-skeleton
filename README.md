@@ -1,5 +1,8 @@
-# Development notes
+# FastAPI Skeleton
+A useful jumpstart for fastapi projects. 
+This skeleton setup is the result of working through the fastapi tutorial. In addition are some basic user and group models with api endpoints for common crud operations.
 
+Project layout and some functionality is influenced by Django.
 
 ## Getting started
 This setup uses SQLAlchemy and Alembic for database management. A basic 'user' submodule is included.
