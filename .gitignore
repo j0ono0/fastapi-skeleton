@@ -1,7 +1,18 @@
-*.egg-info/
-venv/
-**/__pycache__/
 
-# local database
+# Development folders and files
+*.egg-info/
+**/__pycache__/
+*.code-workspace
+
+# Virtual environment
+venv/
+
+# Local/dev/testing databases
 *.sqlite
 *.db
+
+# Env/app settings
+# Likely to be unique for each environment
+# May includes sensitive data such as API keys, passwords etc. 
+# ***DO NOT REMOVE THIS ENTRY***
+*.env

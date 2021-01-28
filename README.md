@@ -22,6 +22,7 @@ This setup uses SQLAlchemy and Alembic for database management. A basic 'user' s
    + Database management `pip install async-exit-stack async-generator SQLAlchemy alembic`
    + User security/authentication `pip install email-validator python-multipart python-jose[cryptography] passlib[bcrypt]`
    + Serve static files `pip install aiofiles`
+   + Read .env setting files `pip install python-dotenv`
    + Install this project as a package too! `pip install -e .`
 The '-e' installs in 'editable' mode and it's named from the 'name' variable in setup.py. 
 Installing this package will allow the import references to work correctly
