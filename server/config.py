@@ -1,8 +1,12 @@
 from pydantic import BaseSettings
+ 
 
 
 class Settings(BaseSettings):
-    host: 'localhost'
+    production_env: bool 
+    database_url: str
+    allowed_hosts: list
 
     class Config:
-        case_sensitive = True
+        env_file = 'settings.env'
+        env_file_encoding = 'utf-8'
