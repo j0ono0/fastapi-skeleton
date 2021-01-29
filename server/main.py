@@ -1,4 +1,4 @@
-from functools import lru_cache
+
 from fastapi import Depends, FastAPI
 from fastapi.middleware.trustedhost import TrustedHostMiddleware
 from fastapi.middleware.httpsredirect import HTTPSRedirectMiddleware
@@ -7,16 +7,14 @@ from fastapi.middleware.gzip import GZipMiddleware
 from starlette.staticfiles import StaticFiles
 from server.user.routes import user_router, groups_router
 from server.metadata import tags
-from database import engine
-engine.Base.metadata.create_all(bind=engine.engine)
+from database.db_config import Base, engine
 
-# Load and cache env settings
-from . import config
-@lru_cache()
-def get_settings():
-    return config.Settings()
+from . import server_config
 
-settings = get_settings()
+
+Base.metadata.create_all(bind=engine)
+
+settings = server_config.get_settings()
 
 app = FastAPI()
 #Middleware
@@ -34,7 +32,7 @@ app.include_router(groups_router)
 # Routers
 
 @app.get("/")
-def homepage(settings: config.Settings = Depends(get_settings)):
+def homepage(settings: server_config.Settings = Depends(server_config.get_settings)):
     return {
         'homepage': True,
         'fastapi': 'Working OK. Try user: pass below...',

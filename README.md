@@ -27,12 +27,14 @@ This setup uses SQLAlchemy and Alembic for database management. A basic 'user' s
 The '-e' installs in 'editable' mode and it's named from the 'name' variable in setup.py. 
 Installing this package will allow the import references to work correctly
 
-4. Initialize Alembic 
+4. Review and change the settings.env file if desired
+
+5. Initialize Alembic 
    + create files `alembic init alembic`
-   + In alembic.ini update this line `sqlalchemy.url = sqlite:///data.db`
+   + In alembic.ini update this line `sqlalchemy.url = sqlite:///data.db` to match if DATABASE_URL was changed in settings.
 
+6. (Optional) Create an initial Alembic migration for easy rollback during development. See below _Create database migration with Alembic_ for details.
 
-5. Create database (Assumes initial models are wanted!) - See section below on Alembic
 
 ## Start server for development:
 

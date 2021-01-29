@@ -1,7 +1,7 @@
 from sqlalchemy import Boolean, Column, ForeignKey, Integer, String, Table
 from sqlalchemy.orm import relationship
 
-from database.engine import Base
+from database.db_config import Base
 
 # Many-to-many association table
 users_groups = Table('users_groups', Base.metadata,

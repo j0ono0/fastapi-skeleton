@@ -7,7 +7,7 @@ from typing import Optional
 from fastapi import Depends, HTTPException, status, APIRouter
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 from . import crud, schemas
-from database.engine import get_db
+from database.db_config import get_db
 
 from .models import User
 
